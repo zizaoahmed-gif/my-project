@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="css/circlo-settings.css">
+
+</head>
+
+<body>
+    <div class="navbar">
+        <h2>Circlo</h2>
+        <div class="links">
+            <a id="hom" href="index.html">Home</a>
+            <a id="out" href="login.html">Logout</a>
+            <title>Settings</title>
+        </div>
+    </div>
+    <div class="main">
+        <input type="checkbox" id="toggle">
+        <label for="toggle" id="menu-btn">☰</label>
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Settings</h2>
+            <ul>
+                <li><a href="Acount.html">Account</a></li>
+                <li><a href="settings.html">Profile</a> </li>
+            </ul>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+
+            <div class="card">
+
+                <!-- Profile Header -->
+                <div class="profile-header">
+                    <img id="preview">
+
+                    <div>
+                        <label>Username</label>
+                        <br>
+                        <label class="upload-btn">
+                            Change Photo
+                            <input type="file" onchange="previewImage(event)">
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Bio -->
+                <div class="form-group">
+                    <label>Bio</label>
+                    <textarea placeholder="Write something about you"></textarea>
+                </div>
+
+                <!-- Birthday -->
+                <div class="form-group">
+                    <label>Birthday</label>
+                    <input type="date">
+                </div>
+
+                <button class="save-btn">Save Changes</button>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+<script>
+    function previewImage(event) {
+        let file = event.target.files[0];
+        let preview = document.getElementById("preview");
+
+        if (file) {
+            preview.src = URL.createObjectURL(file);
+        }
+    }
+</script>
+    <script src="js/setting.js"></script>
+
+</html>

@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --accent: #ff2e63;
+    --accent2: #ff7b00;
+    --leaf1: #ff2e63;
+    --leaf2: #ff7b00;
+    --leaf3: #c0392b;
+    --glass-bg: rgba(10, 10, 10, 0.55);
+    --glass-b: rgba(255, 46, 99, 0.25);
+    --text: #f0f0f0;
+    --text-muted: #aaa;
+    --input-line: rgba(255, 255, 255, 0.35);
+    --radius: 18px;
+}
+
+/* ── RESET ── */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ── BODY / SCENE ── */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+    background-color: #111;
+    position: relative;
+    padding: 20px 16px;
+}
+
+/* ── LOGO ── */
+.logo {
+    position: fixed;
+    top: 24px;
+    left: 28px;
+    z-index: 10;
+}
+
+.logo h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 12px rgba(255, 46, 99, 0.5));
+}
+
+/* ── FORM CARD (shared) ── */
+.login,
+.signup {
+    position: relative;
+    z-index: 10;
+    width: 340px;
+    padding: 36px 32px;
+    border-radius: var(--radius);
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-b);
+    color: var(--text);
+    box-shadow: 0 8px 48px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 46, 99, 0.08);
+    animation: glowPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+    from {
+        box-shadow: 0 8px 48px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 46, 99, 0.12);
+    }
+
+    to {
+        box-shadow: 0 8px 48px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 123, 0, 0.18);
+    }
+}
+
+/* ── HEADINGS ── */
+.login h2,
+.signup h2 {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--text);
+    letter-spacing: -0.3px;
+}
+
+/* ── LABELS ── */
+.login label,
+.signup label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+    margin-top: 16px;
+    margin-bottom: 4px;
+}
+
+/* ── INPUTS ── */
+.login input,
+.signup input,
+.signup select {
+    width: 100%;
+    padding: 9px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--input-line);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.25s;
+}
+
+.login input:focus,
+.signup input:focus,
+.signup select:focus {
+    border-bottom-color: var(--accent);
+}
+
+.login input::placeholder,
+.signup input::placeholder {
+    color: #555;
+    font-size: 13px;
+}
+
+/* ── SELECT ── */
+.signup select {
+    appearance: none;
+    cursor: pointer;
+}
+
+.signup select option {
+    background: #111;
+    color: white;
+}
+
+/* ── NAME ROW ── */
+.name {
+    display: flex;
+    gap: 10px;
+}
+
+.name input {
+    flex: 1;
+    min-width: 0;
+}
+
+/* ── BIRTHDATE ROW ── */
+.birthdate {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.birthdate label {
+    margin-top: 0;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.birthdate input {
+    flex: 1;
+    min-width: 0;
+}
+
+/* ── BUTTON ── */
+.login button[type="submit"],
+.signup button[type="submit"] {
+    width: 100%;
+    margin-top: 28px;
+    padding: 12px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    transition: opacity 0.2s, transform 0.15s;
+    box-shadow: 0 4px 20px rgba(255, 46, 99, 0.35);
+}
+
+.login button[type="submit"]:hover,
+.signup button[type="submit"]:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+}
+
+/* ── LINKS ── */
+.login p,
+.signup p {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.login a,
+.signup a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.login a:hover,
+.signup a:hover {
+    opacity: 0.75;
+}
+
+/* ================= MESSAGE ================= */
+
+.msg {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    padding: 14px 22px;
+    border-radius: 14px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 9999;
+    animation: showMsg .4s ease;
+    backdrop-filter: blur(10px);
+    max-width: calc(100vw - 50px);
+}
+
+.success {
+    background: rgba(0, 200, 120, 0.85);
+}
+
+.error {
+    background: rgba(255, 50, 80, 0.85);
+}
+
+@keyframes showMsg {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── TABLET  ── */
+@media (max-width: 768px) {
+    body {
+        padding: 80px 20px 24px;
+        align-items: flex-start;
+    }
+
+    .logo {
+        top: 18px;
+        left: 20px;
+    }
+
+    .logo h1 {
+        font-size: 24px;
+    }
+
+    .login,
+    .signup {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 32px 28px;
+    }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 480px) {
+    body {
+        padding: 72px 14px 20px;
+        align-items: flex-start;
+    }
+
+    .logo {
+        top: 16px;
+        left: 16px;
+    }
+
+    .logo h1 {
+        font-size: 22px;
+    }
+
+    .login,
+    .signup {
+        width: 100%;
+        max-width: 100%;
+        padding: 28px 22px;
+        border-radius: 16px;
+    }
+
+    .login h2,
+    .signup h2 {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    /* Stack name fields vertically on very small screens */
+    .name {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    /* Stack birthdate label + input */
+    .birthdate {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .birthdate label {
+        white-space: normal;
+    }
+
+    .login button[type="submit"],
+    .signup button[type="submit"] {
+        padding: 13px;
+        font-size: 15px;
+        margin-top: 24px;
+    }
+
+    .msg {
+        top: 12px;
+        right: 12px;
+        left: 12px;
+        text-align: center;
+        max-width: unset;
+    }
+}

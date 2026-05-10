@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register to Circlo</title>
+    <link rel="stylesheet" href="css/register.css">
+</head>
+
+<body>
+
+    <div class="logo">
+        <h1>Circlo</h1>
+    </div>
+
+    <form class="signup" action="index.html" method="post">
+        <h2>Sign Up</h2>
+        <div class="name">
+            <div>
+                <label>First Name</label>
+                <input type="text" required placeholder="First name">
+            </div>
+            <div>
+                <label>Last Name</label>
+                <input type="text" required placeholder="Last name">
+            </div>
+        </div>
+        <div class="birthdate">
+            <div>
+                <label>Day</label>
+                <input type="number" required placeholder="DD" min="1" max="31">
+            </div>
+            <div>
+                <label>Month</label>
+                <input type="number" required placeholder="MM" min="1" max="12">
+            </div>
+            <div>
+                <label>Year</label>
+                <input type="number" required placeholder="YYYY" min="1900" max="2025">
+            </div>
+        </div>
+        <div class="gender">
+            <label>Gender</label>
+            <select required>
+                <option value="" disabled selected>Select gender</option>
+                <option>Female</option>
+                <option>Male</option>
+                <option>Non-disclosure</option>
+            </select>
+        </div>
+        <div class="email">
+            <label>Email</label>
+            <input type="email" required placeholder="Enter your email">
+        </div>
+        <div class="password">
+            <label>Password</label>
+            <input type="password" required placeholder="Enter your password">
+        </div>
+        <button type="submit">Create Account</button>
+        <p>Already have an account?<br><a href="login.html">Login</a></p>
+    </form>
+    <script src="js/signup.js"></script>
+</body>
+
+</html>
